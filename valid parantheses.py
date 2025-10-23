@@ -5,12 +5,14 @@ class Solution(object):
         :rtype: bool
         """
         stack=[]
-        mapping={")":"(","]":"[","}":"{"}
+        map={')': '(',']':'[','}':'{'}
         for char in s:
-            if char in mapping:
-                top_element=stack.pop()if stack else '#'
-                if mapping[char]!=top_element:
-                    return False
-            else:
+            if char in map.values():
                 stack.append(char)
-        return not stack
+            elif char in map:
+                if not stack or stack[-1] !=map[char]:
+                    return False
+                stack.pop()
+            else:
+                continue
+        return len(stack) == 0
