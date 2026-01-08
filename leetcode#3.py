@@ -1,0 +1,15 @@
+def lcs(s):
+    left=0
+    seen=set()
+    max_len=0
+
+    for right in range(len(s)):
+        while s[right]in seen:
+            seen.remove(s[left])
+            left+=1
+
+        seen.add(s[right])
+        max_len=max(max_len,right-left+1)
+    return max_len
+s="abcabcacccc"
+print(lcs(s))
