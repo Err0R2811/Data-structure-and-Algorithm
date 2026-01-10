@@ -1,3 +1,6 @@
+
+import math
+from math import sqrt
 class Solution(object):
     def mySqrt(self, x):
         """
@@ -6,4 +9,5 @@ class Solution(object):
         """
         s=int(sqrt(x))
         return s
-        
+    
+print(Solution().mySqrt(16))
